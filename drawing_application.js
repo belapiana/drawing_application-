@@ -18,10 +18,10 @@ canvas.addEventListener('mousedown', (e) => {
 // Stop drawing
 canvas.addEventListener('mouseup', () => {
     isDrawing = false;
-    ctx.beginPath(); // Start a new path to prevent connecting shapes
+    ctx.beginPath(); // Start a new path 
 });
 
-
+// Using mousemove to create shapes
 canvas.addEventListener('mousemove', (e) => {
     if (!isDrawing) return;
 
@@ -33,9 +33,9 @@ canvas.addEventListener('mousemove', (e) => {
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
     } else if (tool === 'rectangle') {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Rectangle function
         ctx.strokeRect(startX, startY, e.offsetX - startX, e.offsetY - startY);
-    } else if (tool === 'circle') {
+    } else if (tool === 'circle') { // circle function
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const radius = Math.sqrt(Math.pow(e.offsetX - startX, 2) + Math.pow(e.offsetY - startY, 2));
         ctx.beginPath();
